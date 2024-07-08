@@ -1,4 +1,4 @@
-IMG_NAME='raspios'
+IMG_NAME='presentium'
 PI_GEN_RELEASE='Presentium Raspberry Pi OS'
 RELEASE='bookworm'
 LOCALE_DEFAULT='en_CH.UTF-8'
