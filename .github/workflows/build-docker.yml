@@ -42,7 +42,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: built-image
-        path: ./deploy/image_*presentium-full.img.xz
+        path: ./deploy/image_*presentium-full.zip
         if-no-files-found: error
 
     - name: Upload debug artifacts
