@@ -1,27 +1,21 @@
 # Inspired from https://github.com/PhotonVision/photon-pi-gen/blob/master/config
 name: build-docker
 
-# Controls when the action will run. Triggers the workflow on push or pull request
-# events but only for the master branch
 on:
   push:
     branches: [ main ]
-    tags: 
+    tags:
       - '*'
   pull_request:
     branches: [ main ]
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
   build:
-    # The type of runner that the job will run on
+    # required to run on this specific version of Ubuntu
     runs-on: ubuntu-22.04
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v4
 
     - name: APT update
       run: |
@@ -39,14 +33,14 @@ jobs:
       run: ls -lh deploy
 
     - name: Upload built image
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         name: built-image
         path: ./deploy/image_*presentium-full.zip
         if-no-files-found: error
 
     - name: Upload debug artifacts
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         name: debug-files
         path: | 
@@ -59,7 +53,7 @@ jobs:
     needs: [build]
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/download-artifact@v2
+      - uses: actions/download-artifact@v4
         with:
           name: built-image
       - uses: softprops/action-gh-release@v1
