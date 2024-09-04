@@ -1,4 +1,0 @@
-xserver-xorg xinit
-lxde lxtask menu-xdg
-gvfs-backends gvfs-fuse
-gnome-keyring
