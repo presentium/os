@@ -1,6 +1,5 @@
 #!/bin/bash -e
 
 on_chroot <<- \EOF
-	systemctl enable presentium-client
-    systemctl start presentium-client
+	ln -s '/lib/systemd/system/presentium-client.service' '/etc/systemd/system/multi-user.target.wants/presentium-client.service'
 EOF
