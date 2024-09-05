@@ -1,4 +1,7 @@
-#!/usr/bin/env bash
+#!/bin/bash -e
+
+tee /etc/presentium/randomhostname.sh << EOF
+#!/bin/bash
 # Description: Generate and set a random hostname on Linux
 # Usage: set-random-hostname
 
@@ -29,6 +32,11 @@ __set_random_hostname() {
 }
 
 # Check if the hostname is presentium-device and if so, set a random hostname
-if [ "$(hostname)" == "presentium-device" ]; then
+if [ "\$(hostname)" == "presentium-device" ]; then
   __set_random_hostname
 fi
+EOF
+
+chmod +x /etc/presentium/randomhostname.sh
+
+echo "@reboot root /etc/presentium/randomhostname.sh" >> /etc/cron.d/presentium-rename
