@@ -12,6 +12,16 @@ The image generated is a minimal Raspberry Pi OS image (headless) with the follo
 
 The image is built by CI on tag push and the artifacts are uploaded to the releases page.
 
+# Using the image
+1. Install the Raspberry Pi Imager from [Raspberry official website](https://www.raspberrypi.com/software/)
+3. Download the latest release from this repository
+4. Open Raspberry Pi Imager and select :
+   - No Filtering
+   - Select the image you downloaded
+   - Select your SD card
+5. Click Next and don't apply custom configuration if asked, everything you need is already in the image
+6. Install and enjoy :)
+
 # pi-gen
 
 Tool used to create Raspberry Pi OS images, and custom images based on Raspberry Pi OS,
