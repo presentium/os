@@ -1,6 +1,3 @@
-install -m 644 files/randomhostname.sh "${ROOTFS_DIR}/etc/init.d/randomhostname.sh"
+install -m 755 files/randomhostname.sh "${ROOTFS_DIR}/etc/presentium/randomhostname.sh"
 
-on_chroot << EOF
-chmod +x /etc/init.d/randomhostname.sh
-update-rc.d randomhostname.sh defaults
-EOF
+echo "@reboot root /etc/presentium/randomhostname.sh" >> "${ROOTFS_DIR}/etc/cron.d/presentium-rename"
