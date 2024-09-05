@@ -31,6 +31,11 @@ __set_random_hostname() {
 
 }
 
+# Check if the hostname is localhost and if so, set a random hostname
+if [ "\$(hostname)" == "localhost" ]; then
+  __set_random_hostname
+fi
+
 # Check if the hostname is presentium-device and if so, set a random hostname
 if [ "\$(hostname)" == "presentium-device" ]; then
   __set_random_hostname
